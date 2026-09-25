@@ -1364,7 +1364,7 @@
             <div class="details-list">
               <div class="detail">
                 <strong>Location</strong>
-                <span>Andhra Pradesh, India</span>
+                <span>Srikalahasti,Andhra Pradesh, India</span>
               </div>
 
               <div class="detail">
@@ -1374,7 +1374,7 @@
 
               <div class="detail">
                 <strong>Graduation</strong>
-                <span>2028</span>
+                <span>2029</span>
               </div>
 
               <div class="detail">
@@ -1727,11 +1727,8 @@
       localStorage.setItem("theme", isDarkMode ? "dark" : "light");
     });
 
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark-mode");
-      themeButton.textContent = "☀";
-    }
-
+  document.body.classList.add("dark-mode");
+themeButton.textContent = "☀";
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
