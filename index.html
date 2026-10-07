@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -1000,446 +1000,768 @@
     }
 
     .timeline-content:hover {
-      transform: translateY(-8px);
+      transform: translateX(8px);
       box-shadow: var(--shadow-md);
     }
 
     .timeline-content h3 {
-      margin-bottom: 6px;
       font-family: "Space Grotesk", sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
     }
 
-    .timeline-content .date {
-      color: var(--text-light);
-      font-size: 0.78rem;
-      font-weight: 700;
-      margin-bottom: 8px;
+    .timeline-meta {
+      color: var(--primary);
+      font-size: 0.84rem;
+      font-weight: 800;
+      margin-bottom: 10px;
     }
 
     .timeline-content p {
       color: var(--text-light);
-      font-size: 0.9rem;
-      line-height: 1.6;
+      font-size: 0.91rem;
     }
 
-    .cta-section {
-      text-align: center;
-      padding: 60px 0;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 25px;
     }
 
-    .cta-title {
+    .contact-card {
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border 0.35s ease;
+    }
+
+    .contact-card:hover {
+      transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateY(-8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-card h3 {
       font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(1.6rem, 3vw, 2.5rem);
-      margin-bottom: 24px;
-      line-height: 1.2;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
     }
 
-    .cta-description {
+    .contact-card > p {
       color: var(--text-light);
-      font-size: 1.05rem;
-      margin-bottom: 32px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: 25px;
+    }
+
+    .contact-items {
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--text-light);
+      transition:
+        color var(--transition),
+        transform var(--transition);
+    }
+
+    .contact-item:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .contact-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      color: var(--primary);
+      background: rgba(109, 40, 217, 0.1);
+      font-weight: 800;
     }
 
     .footer {
+      padding: 30px 0;
       border-top: 1px solid var(--border);
-      padding: 40px 0;
-      text-align: center;
       color: var(--text-light);
+      text-align: center;
+      font-size: 0.86rem;
     }
 
-    .footer p {
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: var(--primary);
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: color var(--transition);
-    }
-
-    .footer-links a:hover {
-      color: var(--secondary);
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 1000px) {
       .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr;
+        gap: 35px;
       }
 
       .project-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 780px) {
+      .section {
+        padding: 80px 0;
+      }
+
+      .menu-button {
+        display: grid;
       }
 
       .nav-links {
-        gap: 16px;
-        font-size: 0.85rem;
+        position: absolute;
+        top: 88px;
+        left: 18px;
+        right: 18px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--surface);
+        box-shadow: var(--shadow-md);
       }
 
-      .section {
-        padding: 60px 0;
+      .nav-links.open {
+        display: flex;
+        animation: fadeUp 0.3s ease both;
+      }
+
+      .nav-links a {
+        padding: 13px;
+        border-radius: 10px;
+      }
+
+      .nav-links a:hover {
+        background: var(--surface-soft);
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 135px;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons,
+      .social-links {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        min-height: 430px;
+      }
+
+      .visual-ring {
+        width: 300px;
+        height: 300px;
+      }
+
+      .profile-avatar {
+        width: 145px;
+        height: 145px;
+        font-size: 3.3rem;
+      }
+
+      .skills-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(100% - 26px, 1160px);
+      }
+
+      .logo {
+        font-size: 1.1rem;
+      }
+
+      .theme-label {
+        display: none;
+      }
+
+      .profile-card {
+        padding: 25px;
+      }
+
+      .badge-one {
+        right: -2px;
+      }
+
+      .badge-two {
+        left: -2px;
+      }
+
+      .detail {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .detail span {
+        text-align: left;
       }
     }
   </style>
 </head>
+
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <div class="nav-inner">
-        <div class="logo">Suresh<span>Dev</span></div>
-        <div class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="nav-actions">
-          <button class="icon-button" onclick="toggleDarkMode()">🌙</button>
-        </div>
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#home">Suresh Thonnati<span>.</span></a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-button" id="themeButton" aria-label="Toggle theme">
+          ☾
+        </button>
+
+        <button class="menu-button" id="menuButton" aria-label="Open menu">
+          ☰
+        </button>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-grid">
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
         <div class="hero-content">
-          <div class="availability">
-            <span>Available for work</span>
-          </div>
+          <div class="availability">Open to internships and opportunities</div>
+
           <h1>
-            Hi, I'm <span class="gradient-text">Suresh</span>
+            Building my path as a
+            <span class="gradient-text">software developer.</span>
           </h1>
+
           <p class="hero-description">
-            A full-stack developer and AI/ML enthusiast passionate about building intelligent systems and beautiful web experiences. I combine technical expertise with creative problem-solving.
+            I’m Suresh Thonnati, a B.Tech CSE AI & ML student passionate about
+            Python, Ai Engineer, DSA, and artificial intelligence.
+            I learn by building practical solutions and solving meaningful problems.
           </p>
+
           <div class="hero-buttons">
-            <button class="button button-primary">View My Work</button>
-            <button class="button button-outline">Contact Me</button>
+            <a href="#projects" class="button button-primary">
+              Explore My Work →
+            </a>
+
+            <a href="mailto:sureshthonnati24@gmail.com" class="button button-outline">
+              Contact Me
+            </a>
           </div>
+
           <div class="social-links">
-            <a href="#" title="GitHub">G</a>
-            <a href="#" title="LinkedIn">L</a>
-            <a href="#" title="Twitter">T</a>
-            <a href="#" title="Email">✉</a>
+            <a
+              href="https://github.com/sureshdeveloper24"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+            >
+              GH
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/suresh-thonnati"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+            >
+              IN
+            </a>
+
+            <a
+              href="mailto:sureshthonnati24@gmail.com"
+              aria-label="Email"
+            >
+              @
+            </a>
           </div>
         </div>
+
         <div class="hero-visual">
           <div class="visual-ring"></div>
+
           <div class="profile-card">
-            <div class="profile-avatar">S</div>
+            <div class="profile-avatar">ST</div>
             <h2>Suresh Thonnati</h2>
-            <p>Full-Stack Developer</p>
-            <div class="floating-badge badge-one">✨ Always Learning</div>
-            <div class="floating-badge badge-two">🚀 Building Future</div>
+            <p>B.Tech CSE AI & ML Student</p>
           </div>
+
+          <div class="floating-badge badge-one">Python • DSA • Ai Engineer</div>
+          <div class="floating-badge badge-two">AI/ML Learner</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-heading reveal">
-        <span class="section-label">About</span>
-        <h2 class="section-title">Who I Am</h2>
-        <p class="section-description">
-          I'm a passionate developer with expertise in full-stack development, AI/ML, and cloud architecture.
-        </p>
-      </div>
-      <div class="about-grid">
-        <div class="info-card reveal">
-          <h3>The Journey</h3>
-          <p>
-            Starting with curiosity about how things work, I've evolved into a full-stack developer with 3+ years of experience building scalable applications.
-          </p>
-          <p>
-            My expertise spans frontend technologies, backend systems, AI/ML models, and cloud infrastructure.
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">About me</span>
+          <h2 class="section-title">Learning today. Building tomorrow.</h2>
+          <p class="section-description">
+            I am focused on developing strong fundamentals and becoming a
+            capable software developer through consistent learning and practical projects.
           </p>
         </div>
-        <div class="info-card reveal">
-          <h3>What Drives Me</h3>
-          <p>
-            I'm driven by the challenge of solving complex problems through elegant code and innovative solutions. I believe in continuous learning and pushing technological boundaries.
-          </p>
-          <p>
-            My goal is to create technology that makes a real impact on people's lives and businesses.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section skills-section" id="skills">
-    <div class="container">
-      <div class="section-heading reveal">
-        <span class="section-label">Skills</span>
-        <h2 class="section-title">Technical Expertise</h2>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-card reveal">
-          <div class="skill-top">
-            <h3>Frontend Development</h3>
-            <span>95%</span>
+        <div class="about-grid">
+          <div class="info-card quote-card reveal">
+            <div>
+              <h3>
+                “Good developers are not just code writers. They are problem solvers.”
+              </h3>
+              <p>
+                My goal is to understand problems deeply, design useful solutions,
+                and continuously improve the quality of my work.
+              </p>
+            </div>
           </div>
-          <div class="skill-bar">
-            <div class="skill-progress" style="--skill: 95%"></div>
-          </div>
-          <div class="skill-tags">
-            <span class="tag">React</span>
-            <span class="tag">Vue</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">TypeScript</span>
-          </div>
-        </div>
 
-        <div class="skill-card reveal">
-          <div class="skill-top">
-            <h3>Backend Development</h3>
-            <span>90%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-progress" style="--skill: 90%"></div>
-          </div>
-          <div class="skill-tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">Python</span>
-            <span class="tag">Django</span>
-            <span class="tag">Express</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-top">
-            <h3>AI & Machine Learning</h3>
-            <span>85%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-progress" style="--skill: 85%"></div>
-          </div>
-          <div class="skill-tags">
-            <span class="tag">TensorFlow</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">NLP</span>
-            <span class="tag">Computer Vision</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal">
-          <div class="skill-top">
-            <h3>Cloud & DevOps</h3>
-            <span>88%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-progress" style="--skill: 88%"></div>
-          </div>
-          <div class="skill-tags">
-            <span class="tag">AWS</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Kubernetes</span>
-            <span class="tag">CI/CD</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="projects">
-    <div class="container">
-      <div class="section-heading reveal">
-        <span class="section-label">Projects</span>
-        <h2 class="section-title">Featured Work</h2>
-      </div>
-      <div class="project-grid">
-        <div class="project-card reveal">
-          <div>
-            <div class="project-number">01</div>
-            <h3>AI Analytics Platform</h3>
+          <div class="info-card reveal">
             <p>
-              A comprehensive analytics platform powered by machine learning, providing real-time insights and predictive analytics.
+              I am a second-year B.Tech student at Sri Venkateswara College of
+              Engineering and Technology, specializing in Computer Science &
+              Engineering with Artificial Intelligence and Machine Learning.
             </p>
-          </div>
-          <div class="project-footer">
-            <span class="project-status">Live</span>
-            <a href="#" class="project-link">View Project →</a>
-          </div>
-        </div>
 
-        <div class="project-card reveal">
-          <div>
-            <div class="project-number">02</div>
-            <h3>E-Commerce Platform</h3>
             <p>
-              Full-stack e-commerce solution with real-time inventory, payment processing, and personalized recommendations.
+              Currently, I am strengthening my skills in Python, data structures,
+              AI Engineer, MySQL, and machine learning fundamentals.
             </p>
-          </div>
-          <div class="project-footer">
-            <span class="project-status">Live</span>
-            <a href="#" class="project-link">View Project →</a>
+
+            <div class="details-list">
+              <div class="detail">
+                <strong>Location</strong>
+                <span>Srikalahasti,Andhra Pradesh, India</span>
+              </div>
+
+              <div class="detail">
+                <strong>Education</strong>
+                <span>B.Tech CSE AI & ML</span>
+              </div>
+
+              <div class="detail">
+                <strong>Graduation</strong>
+                <span>2029</span>
+              </div>
+
+              <div class="detail">
+                <strong>Career goal</strong>
+                <span>Full-Stack Developer</span>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="project-card reveal">
-          <div>
-            <div class="project-number">03</div>
-            <h3>Content Management System</h3>
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">My toolkit</span>
+          <h2 class="section-title">Skills I am developing</h2>
+          <p class="section-description">
+            These percentages represent my current learning confidence, not fixed limits.
+            I am continuously improving through practice and projects.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <div class="skill-top">
+              <h3>Python</h3>
+              <span>25%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--skill: 75%"></div>
+            </div>
+
+            <div class="skill-tags">
+              <span class="tag">OOP</span>
+              <span class="tag">Collections</span>
+              <span class="tag">Problem Solving</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-top">
+              <h3>Web Development</h3>
+              <span>30%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--skill: 70%"></div>
+            </div>
+
+            <div class="skill-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-top">
+              <h3>Python & AI/ML</h3>
+              <span>65%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--skill: 65%"></div>
+            </div>
+
+            <div class="skill-tags">
+              <span class="tag">NumPy</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">ML Basics</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-top">
+              <h3>DSA & Problem Solving</h3>
+              <span>60%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--skill: 60%"></div>
+            </div>
+
+            <div class="skill-tags">
+              <span class="tag">Arrays</span>
+              <span class="tag">Strings</span>
+              <span class="tag">Algorithms</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-top">
+              <h3>Databases</h3>
+              <span>60%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--skill: 60%"></div>
+            </div>
+
+            <div class="skill-tags">
+              <span class="tag">MySQL</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Database Design</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal">
+            <div class="skill-top">
+              <h3>Tools</h3>
+              <span>70%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="--skill: 70%"></div>
+            </div>
+
+            <div class="skill-tags">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">Projects</span>
+          <h2 class="section-title">Things I am building</h2>
+          <p class="section-description">
+            I am converting my learning into practical projects that demonstrate
+            programming, database, web development, and AI/ML skills.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div>
+              <span class="project-number">01</span>
+              <h3>Student Management System</h3>
+              <p>
+                A Java and MySQL application for managing student records,
+                courses, and academic information.
+              </p>
+
+              <div class="skill-tags">
+                <span class="tag">Java</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">OOP</span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <span class="project-status">Currently learning</span>
+              <a href="#" class="project-link">Coming soon →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div>
+              <span class="project-number">02</span>
+              <h3>Placement Preparation Tracker</h3>
+              <p>
+                A productivity application to track DSA questions, interview
+                preparation, applications, and learning progress.
+              </p>
+
+              <div class="skill-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <span class="project-status">Planned</span>
+              <a href="#" class="project-link">View idea →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div>
+              <span class="project-number">03</span>
+              <h3>AI Student Performance Predictor</h3>
+              <p>
+                A machine learning project that predicts student performance
+                using academic and behavioral data.
+              </p>
+
+              <div class="skill-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Machine Learning</span>
+              </div>
+            </div>
+
+            <div class="project-footer">
+              <span class="project-status">Future project</span>
+              <a href="#" class="project-link">Explore idea →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">My journey</span>
+          <h2 class="section-title">Growing one step at a time</h2>
+          <p class="section-description">
+            My journey is focused on learning consistently, developing useful
+            skills, and preparing for software development opportunities.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+              <h3>B.Tech CSE — AI & ML</h3>
+              <div class="timeline-meta">
+                Sri Venkateswara College of Engineering and Technology · 2025–2029
+              </div>
+              <p>
+                Building foundations in programming, computer science,
+                artificial intelligence, machine learning, and software development.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+              <h3>Agentic AI Certified Foundations Associate</h3>
+              <div class="timeline-meta">Oracle University</div>
+              <p>
+                Completed certification focused on foundational concepts related
+                to agentic artificial intelligence.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+              <h3>OPPO ColorOS College Student Tech Community</h3>
+              <div class="timeline-meta">Selected Community Member</div>
+              <p>
+                Engaging with a technology community to explore learning,
+                innovation, and software-related opportunities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <h3>Let’s connect.</h3>
             <p>
-              Scalable CMS with intuitive interface, multi-language support, and advanced SEO optimization tools.
+              I am open to internships, collaborations, learning opportunities,
+              and conversations about software development.
             </p>
-          </div>
-          <div class="project-footer">
-            <span class="project-status">Live</span>
-            <a href="#" class="project-link">View Project →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-heading reveal">
-        <span class="section-label">Experience</span>
-        <h2 class="section-title">My Timeline</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <div class="timeline-dot">1</div>
-          <div class="timeline-content">
-            <h3>Senior Full-Stack Developer</h3>
-            <div class="date">2023 - Present</div>
-            <p>Leading development of enterprise-level applications, mentoring junior developers, and architecting scalable solutions.</p>
-          </div>
-        </div>
-        <div class="timeline-item reveal">
-          <div class="timeline-dot">2</div>
-          <div class="timeline-content">
-            <h3>Full-Stack Developer</h3>
-            <div class="date">2021 - 2023</div>
-            <p>Developed and maintained multiple web applications using modern tech stack. Implemented AI/ML features and optimized performance.</p>
-          </div>
-        </div>
-        <div class="timeline-item reveal">
-          <div class="timeline-dot">3</div>
-          <div class="timeline-content">
-            <h3>Junior Developer</h3>
-            <div class="date">2020 - 2021</div>
-            <p>Started my career building responsive web interfaces and backend APIs. Learned industry best practices.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <div class="contact-items">
+              <a class="contact-item" href="mailto:sureshthonnati24@gmail.com">
+                <span class="contact-icon">@</span>
+                <span>sureshthonnati24@gmail.com</span>
+              </a>
 
-  <section class="cta-section" id="contact">
-    <div class="container">
-      <h2 class="cta-title">Let's Build Something Amazing Together</h2>
-      <p class="cta-description">
-        I'm always interested in hearing about new projects and opportunities.
-      </p>
-      <button class="button button-primary">Get In Touch</button>
-    </div>
-  </section>
+              <a
+                class="contact-item"
+                href="https://github.com/sureshdeveloper24"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="contact-icon">GH</span>
+                <span>github.com/sureshdeveloper24</span>
+              </a>
+
+              <a
+                class="contact-item"
+                href="https://www.linkedin.com/in/suresh-thonnati"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="contact-icon">IN</span>
+                <span>linkedin.com/in/suresh-thonnati</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-card reveal">
+            <span class="section-label">Career objective</span>
+            <h3>Building skills for real-world software development.</h3>
+            <p>
+              My goal is to become a skilled AI Engineer with strong
+              Python, DSA, database, RAG , and AI/ML foundations.
+            </p>
+
+            <a href="mailto:sureshthonnati24@gmail.com" class="button button-primary">
+              Send me a message →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="container">
-      <p>Let's connect and create something extraordinary</p>
-      <div class="footer-links">
-        <a href="#">GitHub</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Twitter</a>
-        <a href="#">Email</a>
-      </div>
-      <p>© 2024 Suresh Thonnati. All rights reserved.</p>
+      © 2026 Suresh Thonnati · Designed and built with HTML, CSS, and JavaScript.
     </div>
   </footer>
 
   <script>
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+    const navbar = document.getElementById("navbar");
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+    const themeButton = document.getElementById("themeButton");
+    const revealElements = document.querySelectorAll(".reveal");
+    const skillsSection = document.querySelector(".skills-section");
+
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 20);
     });
 
-    const reveals = document.querySelectorAll('.reveal');
-    const observe = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observe, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
+    menuButton.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuButton.textContent = navLinks.classList.contains("open") ? "×" : "☰";
     });
 
-    reveals.forEach(reveal => observer.observe(reveal));
-
-    const skillCards = document.querySelectorAll('.skill-card');
-    const skillObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const progressBars = entry.target.querySelectorAll('.skill-progress');
-          progressBars.forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-              bar.style.width = width;
-            }, 100);
-          });
-          skillObserver.unobserve(entry.target);
-        }
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.textContent = "☰";
       });
-    }, { threshold: 0.5 });
+    });
 
-    skillCards.forEach(card => skillObserver.observe(card));
+    themeButton.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const isDarkMode = document.body.classList.contains("dark-mode");
+      themeButton.textContent = isDarkMode ? "☀" : "☾";
+      localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+    });
 
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    }
+  document.body.classList.add("dark-mode");
+themeButton.textContent = "☀";
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
 
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.body.classList.add('dark-mode');
-    }
+    revealElements.forEach((element) => observer.observe(element));
+    if (skillsSection) observer.observe(skillsSection);
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href !== '#' && document.querySelector(href)) {
-          e.preventDefault();
-          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
-        }
+    const tiltItems = document.querySelectorAll(
+      ".profile-card, .project-card, .skill-card, .info-card, .contact-card"
+    );
+
+    tiltItems.forEach((item) => {
+      item.addEventListener("pointermove", (event) => {
+        const rect = item.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+
+        const rotateY = (x - 0.5) * 18;
+        const rotateX = (0.5 - y) * 18;
+
+        item.style.transform =
+          "perspective(1200px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateY(-8px)";
+      });
+
+      item.addEventListener("pointerleave", () => {
+        item.style.transform = "";
       });
     });
   </script>
